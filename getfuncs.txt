@@ -1,1 +1,11 @@
+
+
+jq 遍历each 生成 的资料
+
+vs 的插件和设置 thunder
+vs 运行js文件输出
+
+ 搜索 joinLines
+vs 选择引号内，整行，整块
+tasks.json html文件ctrl + shift + b运行{"windows":{"command":"explorer.exe"},"args":["${file}"]}
 提供文件名单词以便vscode能补全

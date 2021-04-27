@@ -1,0 +1,45 @@
+<!doctype html>
+<!-- https://blog.csdn.net/feinifi/article/details/84637633 -->
+<html>
+  <head>
+	   <meta charset="UTF-8"/>
+	   <title>jQuery数组对象转javascript数组</title>
+	   <style type="text/css">
+		  *{margin:0;padding:0}
+		  #box{width:800px;margin:0 auto;}
+		  .box-item{background:#ddd;height:40px;margin:5px 0;}
+	   </style>
+	   <script type="text/javascript" src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  </head>
+  <body>
+	   <div id="container">
+		  <div id="box">
+			<div class="box-item" data-id="1">1. [].slice.call(items)</div>
+			<div class="box-item" data-id="2">2. Array.prototype.slice.call(items)</div>
+			<div class="box-item" data-id="3">3. Array.from(items)</div>
+			<div class="box-item" data-id="4">4. $.makeArray(items)</div>
+		  </div>
+	   </div>
+       <form action="" id="postform">
+           <input type="text" name="" id="height">
+           <input type="text" id="first">
+        </form>
+	   <script type="text/javascript">
+		  $(function(){
+			var items = $(".box-item");
+			items = $(items).filter(function(index,item){
+				return index%2==0;
+			}).map(function(index,item){
+				return $(item).data("id");
+			});
+			console.log(items);//jq对象
+			//var res = [].slice.call(items);
+			//var res = Array.prototype.slice.call(items);
+			//var res = Array.from(items);
+			var res = $.makeArray(items);
+			console.log(res);//js数组
+            //如$(object)，就可以将javascript对象转为jQuery对象
+		  });
+	   </script>
+  </body>
+</html>
