@@ -4,19 +4,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script src="jquery.min.js"></script>
-    <script src="gencode.js"></script>
-    <link rel="stylesheet" type="text/css" href="Login.css"/> 
+    <link rel="stylesheet" type="text/css" href="gencode.css"/> 
 </head>
- 
 
-<p id="gen">
-    <h1>生成web2py define table代码</h1>
+<div id="gendiv" class="content">
+    <h3>生成web2py define table代码</h3>
     <form action="" method="get" id="genform">
         <input type="text" name="fieldname" required placeholder="name">
-
         <div><input type="checkbox" name="main"><label>主键</label></div>
         <div><input type="checkbox" name="unique"><label>唯一</label></div>
-
         <input type="text" name="linkid" placeholder="linkid">
         <div><select name="what">类型
             <option value="string">string</option>
@@ -40,17 +36,21 @@
             <option value="big-id">big-id</option>
             <option value="big-reference">big-reference</option>
         </select></div>
-        <div><select name="how" multiple>限定</select></div>
-        
-        <button type="submit" class="but">提交</button>
+        <div><select name="how" multiple>限定
+            <option value="double">double</option>
+            <option value="decimal(n,m)">decimal(n,m)</option>
+            <option value="date">date</option>
+            <option value="time">time</option>
+            <option value="datetime">datetime</option>
+            <option value="password">password</option>
+            <option value="upload">upload</option>
+
+        </select></div>
+        <hr class='line'/> 
     </form>
-</p>
-
-
-p#gen>h1{生成web2py define table代码}+form:get#genform>input:checkbox+input+select*2+btn:s.but{提交}
-form[a='1']>table>(tr>th*2)+(tr>(td>input)*2)+tr>input:b{nihao}.lai$
-select#test.foo[name="bar"]>option.foo-item-$[value="$#"]{$#}*
-
+    <button type="submit" class="but">创建</button>
+    <button type="submit" class="but">提交</button>
     
-
-
+</div>
+    
+<script src="gencode.js"></script>

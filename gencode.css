@@ -1,0 +1,30 @@
+.content{
+    width: 100%;
+    background: #534c4c;
+}
+.line{
+    /* width: 50%; */
+    height: 5px;
+    /* line-height: 200px; */
+    text-align: center;
+    background: #0c0101;
+    color: #ffffff;
+}
+input[type="text" i]{
+    width: 10em;
+    height: 2em;
+}
+select{
+    width: 10em;
+}
+.btn{
+    width: 10em;
+    height: 250px;
+    line-height: 50px;
+    text-align: center;
+    background-color: red;
+    position: fixed;
+    color: #ffffff;
+    right: 100px;
+    bottom: 100px;
+}
