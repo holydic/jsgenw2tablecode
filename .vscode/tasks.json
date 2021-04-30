@@ -7,5 +7,9 @@
     "args": [
         "${file}"
     ],
-    "problemMatchers": []
+    "problemMatchers": [],
+    "group": {
+        "kind": "test",
+        "isDefault": true
+    }
 }

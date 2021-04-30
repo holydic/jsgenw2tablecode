@@ -1,0 +1,21 @@
+$('input[name="testradio"]').each(function(){  
+            alert(this.value);  
+        });  每个radio的值
+text() val() serialize()
+
+
+b=item.name==b?(b+bn,bn++):b
+b=item.name==b&&bn++?item.name+bn:item.name
+js数组序列化和转化成字符是不一样的
+判定空数组.length
+JSON.stringify - >将数组、对象序列化为字符串
+JSON.parse     - >从字符串反序列化对象
+$(arr).each(function(index, item) {
+$.each(obj, function(i, con) {
+// i: 属性; con || obj[i]: 属性值
+// $(this): 获取的值 == con.split("");
+console.log(i, con, obj[i], $(this));
+});
+for (j in obj) {
+obj.keys()
+

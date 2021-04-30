@@ -29,4 +29,5 @@ http://127.0.0.1:8000/admin/debug/interact
 
 nodemon,attach,debug,task
 
-调试py，注意args数组 
+调试py，注意args数组 -i -p -a -S -M
+还有启动模块的方式

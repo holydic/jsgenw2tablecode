@@ -1,0 +1,6 @@
+重点看下 https://www.mdeditor.tw/pl/pGeK chromedev
+0202年了, Chrome DevTools 你还只会console.log吗 ? - SegmentFault 思否
+https://segmentfault.com/a/1190000021462553
+同步git gist ever sftp rsync remote stack setting book server
+
+vps装：ss，rsync,book,server

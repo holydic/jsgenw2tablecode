@@ -41,9 +41,9 @@ jQuery('#gendiv > button:nth-child(5)').click(function () {
         s.push(`\n\tField("${v.fieldname}","${v.what == "reference" ? "reference db." + v.linkdb : v.what}"`)
 
 
-        v.default!='default'&&(s2=`default=${v.default}`)&&s.push(s2)
+        v.default!='\n\tdefault'&&(s2=`default=${v.default}`)&&s.push(s2)
 
-        let s3=`${!!v.unique ? "unique=True" : ""}`
+        let s3=`${!!v.unique ? "\n\tunique=True" : ""}`
         s3&&s.push(s3)
 
         genHow={
@@ -57,7 +57,7 @@ jQuery('#gendiv > button:nth-child(5)').click(function () {
             (i,im)=>  genHow[im]&&(  vHow[i]=im+genHow[im]()  )   
             )
 
-        let s4=`${vHow.length?"requires="+"["+vHow.toString()+"]":""}`
+        let s4=`${vHow.length?"\n\trequires="+"["+vHow.toString()+"]":""}`
         s4&&s.push(s4)
 
         v.main&&(main=v.fieldname)
@@ -66,7 +66,7 @@ jQuery('#gendiv > button:nth-child(5)').click(function () {
     })
     $('[name="sig"]').serialize()&&table.push('auth.signature')
     $('[name="migrate"]').serialize()&&table.push('migrate=False')
-    main&&table.push(`format = '%(${main})s'`)
+    main&&table.push(`\n\tformat = '%(${main})s'`)
 
     table.unshift(`db.define_table("${$('[name="biao"]').val()}"`)
     $('textarea').val(table.toString()+")").select()
