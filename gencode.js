@@ -41,9 +41,9 @@ jQuery('#gendiv > button:nth-child(5)').click(function () {
         s.push(`\n\tField("${v.fieldname}","${v.what == "reference" ? "reference db." + v.linkdb : v.what}"`)
 
 
-        v.default!='\n\tdefault'&&(s2=`default=${v.default}`)&&s.push(s2)
+        v.default!='default'&&(s2=`\n\tdefault=${v.default}`)&&s.push(s2)
 
-        let s3=`${!!v.unique ? "\n\tunique=True" : ""}`
+        let s3=`${!!v.unique ? "\n\t\n\tunique=True" : ""}`
         s3&&s.push(s3)
 
         genHow={
@@ -64,7 +64,7 @@ jQuery('#gendiv > button:nth-child(5)').click(function () {
 
         table.push(s.toString()+")")
     })
-    $('[name="sig"]').serialize()&&table.push('auth.signature')
+    $('[name="sig"]').serialize()&&table.push('\n\tauth.signature')
     $('[name="migrate"]').serialize()&&table.push('migrate=False')
     main&&table.push(`\n\tformat = '%(${main})s'`)
 
