@@ -74,8 +74,10 @@ jQuery('#gendiv > button:nth-child(5)').click(function () {
     return false;
 });
 
-$("textarea").blur(function(){
-  $("textarea").select();
-  document.execCommand('copy')
+// $("textarea").on("blur",function(){
+//   $("textarea").select();
+//   document.execCommand("Copy","false",null)
+//   $('#genform').focus()
+//   return false;
 
-});
+// });
