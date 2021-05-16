@@ -9,22 +9,30 @@ function jqgetFormvars(e) {
     });
     return data
 }
+function setEvents(el=$('option')){
+    $("input[type='text']").click(function(){$(this).select()})
 
+    el.mousedown(function (e) {
+        e.preventDefault();
+        $(this).prop('selected', !$(this).prop('selected'));
+        return false;
+    });
+}
+
+setEvents()
 jQuery('#gendiv > button:nth-child(3)').click(function () {
     $trLast = $("#gendiv").find("form:last")
     $trNew = $trLast.clone();
     $trNew.val("")
+    
     $trLast.after($trNew);
     $('html,body').animate({ scrollTop: $trNew.offset().top }, 'slow');
     // 输出：name=asd&type=1
+    setEvents($trNew.find("option"))
     return false;
 });
 
-$('option').mousedown(function (e) {
-    e.preventDefault();
-    $(this).prop('selected', !$(this).prop('selected'));
-    return false;
-});
+
 
 jQuery('#gendiv > button:nth-child(5)').click(function () {
     let table=[]
@@ -38,12 +46,12 @@ jQuery('#gendiv > button:nth-child(5)').click(function () {
         $.each(v,function(i,a){!i.indexOf('how')&&vHow.push(a)})
         
         let s=[],s2=''
-        s.push(`\n\tField("${v.fieldname}","${v.what == "reference" ? "reference db." + v.linkdb : v.what}"`)
-
+        s.push(`\n\tField("${v.fieldname}","${v.what == "reference" ? "reference " + v.linkdb : v.what}"${v.fieldlabel?",label='"+v.fieldlabel+"'":""}`)
+        
 
         v.default!='default'&&(s2=`\n\tdefault=${v.default}`)&&s.push(s2)
 
-        let s3=`${!!v.unique ? "\n\t\n\tunique=True" : ""}`
+        let s3=`${!!v.unique ? "\n\t\tunique=True" : ""}`
         s3&&s.push(s3)
 
         genHow={
@@ -57,7 +65,7 @@ jQuery('#gendiv > button:nth-child(5)').click(function () {
             (i,im)=>  genHow[im]&&(  vHow[i]=im+genHow[im]()  )   
             )
 
-        let s4=`${vHow.length?"\n\trequires="+"["+vHow.toString()+"]":""}`
+        let s4=`${vHow.length?"\n\t\trequires="+"["+vHow.toString()+"]":""}`
         s4&&s.push(s4)
 
         v.main&&(main=v.fieldname)
@@ -73,11 +81,3 @@ jQuery('#gendiv > button:nth-child(5)').click(function () {
     document.execCommand('copy')
     return false;
 });
-
-// $("textarea").on("blur",function(){
-//   $("textarea").select();
-//   document.execCommand("Copy","false",null)
-//   $('#genform').focus()
-//   return false;
-
-// });
