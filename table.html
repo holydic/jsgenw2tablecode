@@ -1,0 +1,89 @@
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="gencode.css" />
+</head>
+
+<div id="gendiv" class="content">
+    <h3>生成web2py define table代码</h3>
+    <form action="" method="get" id="genform">
+        <input type="text" name="fieldname" required placeholder="name">
+        <input type="text" name="fieldlabel" required placeholder="label">
+        <div><input type="checkbox" name="main"><label>主键</label></div>
+        <div><input type="checkbox" name="unique"><label>唯一</label></div>
+        <div>
+            <select name="what">类型
+                <option value="string">string</option>
+                <option value="text">text</option>
+                <option value="blob">blob</option>
+                <option value="boolean">boolean</option>
+                <option value="integer">integer</option>
+                <option value="double">double</option>
+                <option value="decimal(n,m)">decimal(n,m)</option>
+                <option value="date">date</option>
+                <option value="time">time</option>
+                <option value="datetime">datetime</option>
+                <option value="password">password</option>
+                <option value="upload">upload</option>
+                <option value="reference">reference <table>
+                </option>
+                <option value="list:string">list:string</option>
+                <option value="list:integer">list:integer</option>
+                <option value="list:reference">list:reference <table>
+                </option>
+                <option value="json">json</option>
+                <option value="bigint">bigint</option>
+                <option value="big-id">big-id</option>
+                <option value="big-reference">big-reference</option>
+            </select>
+            <input type="text" name="linkdb" placeholder="linkdb">
+
+        </div>
+        <div>
+            <select name="how" multiple>限定
+                <option value="IS_IN_SET">IS_IN_SET</option>
+                <option value="IS_INT_IN_RANGE">IS_INT_IN_RANGE</option>
+                <option value="IS_IN_DB">IS_IN_DB</option>
+                <option value="IS_NOT_IN_DB">IS_NOT_IN_DB</option>
+                <option value="IS_NOT_EMPTY">IS_NOT_EMPTY</option>
+
+            </select>
+            <input type="text" name="isindb" placeholder="indb dog.name">
+            <input type="text" name="isnotindb" placeholder="notindb">
+            <input type="text" name="isinset" placeholder="inset True,False">
+            <input type="text" name="isinrange" placeholder="inrange 0,10">
+
+        </div>
+        <div>
+            <select name="default">默认值
+                <option value="default">default</option>
+                <option value="request.now">request.now</option>
+                <option value="auth.user_id">auth.user_id</option>
+                <option value="True">True</option>
+                <option value="False">False</option>
+
+            </select>
+        </div>
+        <hr class='line' />
+    </form>
+    <button type="submit" class="but">创建</button>
+
+    <div>
+        <input type="text" name="biao" placeholder="tablename" required>
+
+        <input type="checkbox" name="sig"><label>auth.signature</label>
+        <input type="checkbox" name="migrate"><label>migrate false</label>
+    </div>
+    <button type="submit" class="but">提交</button>
+
+    <div>
+        <textarea name="gened" >
+        </textarea>
+    </div>
+
+</div>
+
+<script src="gencode.js"></script>
