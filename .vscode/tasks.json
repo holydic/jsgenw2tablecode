@@ -1,15 +1,1 @@
 
-{
- 
-    "windows": {
-        "command": "explorer.exe"
-    },
-    "args": [
-        "${file}"
-    ],
-    "problemMatchers": [],
-    "group": {
-        "kind": "test",
-        "isDefault": true
-    }
-}
